@@ -1,2 +1,2 @@
 # FaceRecognition
-in this project ill be coding a program detect people's faces on a camera
+A program that would detect people's faces in a camera
