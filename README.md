@@ -12,6 +12,8 @@ For facial recognition, I am going to be buiding a simple siamese network, which
 
 This project will be mainly split into two main poritons, training and then deploying. Training deals with building the models and dealing with facial detection and recognition. Deploying will deal with the extractig, transforming and loading of the images as well as API documenting and creating. As well as making a simple front end framework.
 
+## file structure
+
 facial_project/ <br>
 |-- training/ # all model training scripts <br>
 | |-- face_detection/ <br>
