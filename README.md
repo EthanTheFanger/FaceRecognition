@@ -12,25 +12,15 @@ For facial recognition, I am going to be buiding a simple siamese network, which
 
 This project will be mainly split into two main poritons, training and then deploying. Training deals with building the models and dealing with facial detection and recognition. Deploying will deal with the extractig, transforming and loading of the images as well as API documenting and creating. As well as making a simple front end framework.
 
-facial_project/
-|-- training/ # all model training scripts
-
-| |-- face_detection/
-
-| |-- face_recognition/
-
-|-- inference/ # running trained models
-
-|-- api/ # fastAPI backend
-
-|-- website/ # simple frontend
-
-|-- data/ # all datasets that were used in this project such as LFW and Widerfaces
-
-|-- notebooks/ # notebooks that were used for experimenting with different models
-
-|-- docker/ # docker file and config
-
-|-- requirements.txt # dependencies
-
-|-- README.md # project overview :)
+facial_project/ <br>
+|-- training/ # all model training scripts <br>
+| |-- face_detection/ <br>
+| |-- face_recognition/ <br>
+|-- inference/ # running trained models <br>
+|-- api/ # fastAPI backend <br> 
+|-- website/ # simple frontend <br>
+|-- data/ # all datasets that were used in this project such as LFW and Widerfaces <br>
+|-- notebooks/ # notebooks that were used for experimenting with different models <br>
+|-- docker/ # docker file and config <br>
+|-- requirements.txt # dependencies <br>
+|-- README.md # project overview :) <br>
