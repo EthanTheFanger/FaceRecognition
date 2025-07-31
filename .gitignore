@@ -1,0 +1,23 @@
+# Ignore dataset folders
+/data/
+lfw_dataset/
+WIDER_face/
+WIDER_val/
+wider_face_train_bbx_gt.txt
+wider_face_val_bbx_gt.txt
+
+# Ignore model files
+*.pt
+*.pth
+*.h5
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore virtual environments and config
+.venv/
+.env
+
+# Ignore Kaggle API key
+.kaggle/
