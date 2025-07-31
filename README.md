@@ -26,7 +26,7 @@ facial_project/ <br>
 | |-- face_recognition/ <br>
 |-- inference/ # running trained models <br>
 |-- api/ # fastAPI backend <br> 
-|-- website/ # simple frontend <br>
+|-- frontend/ # simple frontend <br>
 |-- data/ # this is not actually in the repository, and is excluded to keep the repo lightweight <br>
 | |-- lfw_dataset/ <br>
 | |-- WIDER_face/ <br>
