@@ -12,6 +12,12 @@ For facial recognition, I am going to be buiding a simple siamese network, which
 
 This project will be mainly split into two main poritons, training and then deploying. Training deals with building the models and dealing with facial detection and recognition. Deploying will deal with the extractig, transforming and loading of the images as well as API documenting and creating. As well as making a simple front end framework.
 
+## Dataset
+
+This project uses the following datasets, downloaded from kaggle:
+- [Labeled Faces in the Wild (LFW)](https://www.kaggle.com/datasets/jessicali9530/lfw-dataset)
+- [WIDER FACE](https://www.kaggle.com/datasets/aiacademymaterials/wider-face-detection)
+
 ## file structure
 
 facial_project/ <br>
@@ -21,7 +27,9 @@ facial_project/ <br>
 |-- inference/ # running trained models <br>
 |-- api/ # fastAPI backend <br> 
 |-- website/ # simple frontend <br>
-|-- data/ # all datasets that were used in this project such as LFW and Widerfaces <br>
+|-- data/ # this is not actually in the repository, and is excluded to keep the repo lightweight <br>
+| |-- lfw_dataset/ <br>
+| |-- WIDER_face/ <br>
 |-- notebooks/ # notebooks that were used for experimenting with different models <br>
 |-- docker/ # docker file and config <br>
 |-- requirements.txt # dependencies <br>
