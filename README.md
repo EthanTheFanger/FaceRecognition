@@ -14,9 +14,9 @@ This project will be mainly split into two main poritons, training and then depl
 
 ## Dataset
 
-This project uses the following datasets:
+This project uses the following datasets, all from kaggle:
 - [Labeled Faces in the Wild (LFW)](https://www.kaggle.com/datasets/jessicali9530/lfw-dataset)
-- [WIDER FACE](http://shuoyang1213.me/WIDERFACE/)
+- [WIDER FACE](https://www.kaggle.com/datasets/aiacademymaterials/wider-face-detection)
 
 ## file structure
 
