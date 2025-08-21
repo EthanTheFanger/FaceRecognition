@@ -2,7 +2,7 @@
 
 This project deals with both facial detection and facial recognition. 
 
-Facial detection deals with answering the question of whether or not there is a face in a photo, and facial recognition deals with taking an example photo and then comparing it to an input photo and determining whether or not the example photo is the sae as the input photo. 
+Facial detection deals with answering the question of whether or not there is a face in a photo, and facial recognition deals with taking an example photo and then comparing it to an input photo and determining whether or not the example photo is the same as the input photo. 
 
 For facial detection, I am going to be building my own YOLOv8-face model, whose job it is to bound boxes around faces. Then if the user requests the estimation of their age, ethnicity or emotion, my model will feed that into Deepface's facial analysis. Upon uploading a picture, a cropped version of a face on that picture will be outputted, and the estimation of their age, ethnicity and emotion, if desired. Of course, there will be a notice is there are no faces detected in the picture.
 
