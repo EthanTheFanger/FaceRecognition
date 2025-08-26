@@ -21,16 +21,16 @@ This project uses the following datasets, all from kaggle:
 ## file structure
 
 facial_project/ <br>
-|-- training/ # all model training scripts <br>
-| |-- face_detection/ <br>
-| |-- face_recognition/ <br>
-|-- inference/ # running trained models <br>
-|-- api/ # fastAPI backend <br> 
-|-- frontend/ # simple frontend <br>
-|-- data/ # this is not actually in the repository, and is excluded to keep the repo lightweight <br>
-| |-- lfw_dataset/ <br>
-| |-- WIDER_face/ <br>
-|-- notebooks/ # notebooks that were used for experimenting with different models <br>
-|-- docker/ # docker file and config <br>
+|-- (training)[./training/] # all model training scripts <br>
+| |-- face_detection <br>
+| |-- face_recognition <br>
+|-- inference # running trained models <br>
+|-- api # fastAPI backend <br> 
+|-- frontend # simple frontend <br>
+|-- data # this is not actually in the repository, and is excluded to keep the repo lightweight <br>
+| |-- lfw_dataset <br>
+| |-- WIDER_face <br>
+|-- notebooks # notebooks that were used for experimenting with different models <br>
+|-- docker # docker file and config <br>
 |-- requirements.txt # dependencies <br>
 |-- README.md # project overview :) <br>
