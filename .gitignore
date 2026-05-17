@@ -5,6 +5,7 @@ WIDER_face/
 WIDER_val/
 wider_face_train_bbx_gt.txt
 wider_face_val_bbx_gt.txt
+yolov8_datasets/
 
 # Ignore model files
 *.pt
@@ -18,6 +19,3 @@ __pycache__/
 # Ignore virtual environments and config
 .venv/
 .env
-
-# Ignore Kaggle API key
-.kaggle/
