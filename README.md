@@ -1,36 +1,84 @@
 # FaceRecognition (in progress)
 
-This project deals with both facial detection and facial recognition. 
+This project deals with both facial detection and facial recognition.
 
-Facial detection deals with answering the question of whether or not there is a face in a photo, and facial recognition deals with taking an example photo and then comparing it to an input photo and determining whether or not the example photo is the same as the input photo. 
+**Facial detection** answers the question of whether or not there is a face in a photo. A custom YOLOv8 model is used to draw bounding boxes around detected faces. Optionally, detected faces can be passed into DeepFace for age, ethnicity, and emotion estimation. If no faces are detected, the user is notified.
 
-For facial detection, I am going to be building my own YOLOv8-face model, whose job it is to bound boxes around faces. Then if the user requests the estimation of their age, ethnicity or emotion, my model will feed that into Deepface's facial analysis. Upon uploading a picture, a cropped version of a face on that picture will be outputted, and the estimation of their age, ethnicity and emotion, if desired. Of course, there will be a notice is there are no faces detected in the picture.
+**Facial recognition** takes an anchor image (the face to check for) and a positive image (the image to check against), and determines whether the two images contain the same person. A siamese network trained on the LFW dataset is used for this task.
 
-Facial detection, will also be used as a preprocessing step to facial recognition to make the program more rebust, as having cropped faces makes the images much cleaner and accurate for the facial recognition software. 
+Facial detection is also used as a preprocessing step for facial recognition — cropping faces from images before passing them into the siamese network makes the inputs cleaner and improves accuracy.
 
-For facial recognition, I am going to be buiding a simple siamese network, which will have users include an anchor image. An anchor image is the face that we want to check for. Users will also be required to include a positive image, which is the image where we want to check if the anchor matches. The model will be trained on the lfw (labelled faces in the wild) dataset.
+---
 
-This project will be mainly split into two main poritons, training and then deploying. Training deals with building the models and dealing with facial detection and recognition. Deploying will deal with the extractig, transforming and loading of the images as well as API documenting and creating. As well as making a simple front end framework.
+## Datasets
 
-## Dataset
-
-This project uses the following datasets:
 - [Labeled Faces in the Wild (LFW)](https://www.kaggle.com/datasets/jessicali9530/lfw-dataset)
 - [WIDER FACE](http://shuoyang1213.me/WIDERFACE/)
 
-## file structure
+---
 
-facial_project/ <br>
-|-- (training)[./training/] # all model training scripts <br>
-| |-- face_detection <br>
-| |-- face_recognition <br>
-|-- inference # running trained models <br>
-|-- api # fastAPI backend <br> 
-|-- frontend # simple frontend <br>
-|-- data # this is not actually in the repository, and is excluded to keep the repo lightweight <br>
-| |-- lfw_dataset <br>
-| |-- WIDER_face <br>
-|-- notebooks # notebooks that were used for experimenting with different models <br>
-|-- docker # docker file and config <br>
-|-- requirements.txt # dependencies <br>
-|-- README.md # project overview :) <br>
+## File Structure
+
+```
+FaceRecognition/
+|-- training/               # model training scripts
+|   |-- face_detection/
+|   |-- face_recognition/
+|-- inference/              # running trained models
+|-- api/                    # FastAPI backend
+|-- frontend/               # simple frontend
+|-- data/                   # excluded from repo (see setup below)
+|   |-- lfw_dataset/
+|   |-- wider_faces_dataset/
+|-- notebooks/              # notebooks used for experimentation
+|-- docker/                 # Dockerfile and config
+|-- requirements.txt
+|-- README.md
+```
+
+---
+
+## Setup
+
+Download the datasets and place them in the `data/` directory following the structure above.
+
+- WIDER FACE: download `WIDER_train`, `WIDER_val`, `wider_face_train_bbx_gt.txt`, and `wider_face_val_bbx_gt.txt`
+- LFW: download the dataset from Kaggle linked above
+
+---
+
+## Usage
+
+### Preprocessing
+
+Convert the WIDER FACE dataset into YOLOv8 format before training the face detection model.
+
+```bash
+python3 training/face_detection/preprocessing.py -p <path_to_data> -w <path_to_wider_faces>
+```
+
+**Arguments:**
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-p` | Directory to create the YOLOv8 dataset in | `../data/` |
+| `-w` | Path to the WIDER FACE dataset | `../data/wider_faces_dataset` |
+
+**Example:**
+
+```bash
+python3 training/face_detection/preprocessing.py -p ../data/ -w ../data/wider_faces_dataset
+```
+
+This will create a `yolov8_dataset/` folder at the target path with the following structure:
+
+```
+yolov8_dataset/
+|-- data.yaml
+|-- images/
+|   |-- train/
+|   |-- val/
+|-- labels/
+|   |-- train/
+|   |-- val/
+```
