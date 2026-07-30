@@ -30,3 +30,14 @@ class SiameseNetwork(nn.Module):
 
     def forward(self, anchor, positive, negative):
         return self.forward_once(anchor), self.forward_once(positive), self.forward_once(negative)
+
+class TripletLoss(nn.Module):
+    def __init__(self, margin=1.0):
+        super(TripletLoss, self).__init__()
+        self.margin = margin
+
+    def forward(self, anchor, positive, negative):
+        pos_distance = (anchor-positive)**2
+        neg_distance = (anchor-negative)**2
+        loss = torch.relu((pos_distance - neg_distance + self.margin))
+        return loss.mean()

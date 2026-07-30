@@ -2,6 +2,7 @@
 data/
 
 # Ignore model files
+models/
 *.pt
 *.pth
 *.h5

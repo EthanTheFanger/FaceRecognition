@@ -51,34 +51,29 @@ Download the datasets and place them in the `data/` directory following the stru
 
 ### Preprocessing
 
-Convert the WIDER FACE dataset into YOLOv8 format before training the face detection model.
+Converts the WIDER FACE dataset into YOLOv8 format. Run this once before training.
 
 ```bash
-python3 training/face_detection/preprocessing.py -p <path_to_data> -w <path_to_wider_faces>
+python3 training/face_detection/preprocessing.py -p ../data/ -w ../data/wider_faces_dataset
 ```
-
-**Arguments:**
 
 | Flag | Description | Default |
 |------|-------------|---------|
 | `-p` | Directory to create the YOLOv8 dataset in | `../data/` |
 | `-w` | Path to the WIDER FACE dataset | `../data/wider_faces_dataset` |
 
-**Example:**
+### YOLOv8 Training
+
+Fine-tunes a pretrained YOLOv8 model on the WIDER FACE dataset for face detection. Results and weights are saved under `runs/detect/` by default.
 
 ```bash
-python3 training/face_detection/preprocessing.py -p ../data/ -w ../data/wider_faces_dataset
+python3 training/face_detection/train.py -p ../data/yolov8_dataset/data.yaml -m yolov8n.pt -e 100 -b 16
 ```
 
-This will create a `yolov8_dataset/` folder at the target path with the following structure:
-
-```
-yolov8_dataset/
-|-- data.yaml
-|-- images/
-|   |-- train/
-|   |-- val/
-|-- labels/
-|   |-- train/
-|   |-- val/
-```
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-p` | Path to `data.yaml` | `../data/yolov8_dataset/data.yaml` |
+| `-m` | Pretrained model | `yolov8n.pt` |
+| `-e` | Epochs | `100` |
+| `-b` | Batch size | `16` |
+| `-i` | Image size | `640` |
