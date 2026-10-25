@@ -114,6 +114,7 @@ def triplets_to_df(arr, max=10):
     # make a row that gets rid of the last _000X.jpg portion so that only the name is present
     res['name'] = res['Anchor'].apply(lambda x: x[0:-9])
     res = res.groupby('name').head(max).reset_index(drop=True)
+    res = res.drop(columns="name")
     return res
 
 
