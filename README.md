@@ -77,3 +77,17 @@ python3 training/face_detection/train.py -p ../data/yolov8_dataset/data.yaml -m 
 | `-e` | Epochs | `100` |
 | `-b` | Batch size | `16` |
 | `-i` | Image size | `640` |
+
+### Siamese Triplet Preprocessing
+
+Generates anchor/positive/negative triplets from the LFW dataset for training the siamese network with triplet loss. For each identity with more than one image, anchor/positive pairs are drawn from that identity and paired with a random negative image from a single-image identity. Run this once before training the siamese network.
+
+```bash
+python3 training/face_recognition/preprocessing.py --counts 4 --max 10 --allnames-path ../data/lfw_dataset/lfw_allnames.csv
+```
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `--counts` | Max number of times a single photo can be reused across triplets | `4` |
+| `--max` | Max number of triplet rows allowed per identity | `10` |
+| `--allnames-path` | Path to `lfw_allnames.csv` | `../data/lfw_dataset/lfw_allnames.csv` |
