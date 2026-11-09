@@ -1,5 +1,5 @@
 """
-** This file was made using Claude, by prompting it to turn my jupyter notebook into a runnable python file
+** This file was converted to from the jupyter notebook by claude
 
 Siamese preprocessing script
 
